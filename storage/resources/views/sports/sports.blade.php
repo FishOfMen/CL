@@ -3,7 +3,7 @@
 @section('content')
 
 <ul class="breadcrumb">
-    <li><a href="/">Home</a></li>
+    <li><a href="#/">Home</a></li>
     <li class="active">Sports</li>
 </ul>
 <div class="panel panel-primary">
@@ -12,8 +12,8 @@
     </div>
     <div class="panel-body">
         <table class="table table-striped table-hover">
-          <tr>
-            <td></td>
+          <tr ng-repeat="x in sports">
+            <td>{{ x.Name }}</td>
           </tr>
         </table>
     </div>

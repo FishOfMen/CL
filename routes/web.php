@@ -11,16 +11,24 @@
 |
 */
 
+// General routes
 Route::get('/', 'homeController@home');
 
-Route::get('/users/user/{{ id }}', 'userController@index');
+Route::get('/login', 'homeController@login');
+
+// User routes
+Route::get('/users', 'userController@index');
 
 Route::get('/users/create-user', 'userController@createUser');
 
 Route::post('/users/create', 'userController@store');
 
-Route::get('/login', 'homeController@login');
-
+// team Routes
 Route::get('/teams', 'teamController@index');
 
 Route::get('/teams/create-team', 'teamController@create');
+
+// League routes
+
+
+// Other routes

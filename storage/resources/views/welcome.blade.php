@@ -29,7 +29,7 @@
                     </thead>
                      @foreach($users as $user)
                         <tr>
-                            <td>{{ $user->first_name }}</td>
+                            <td><a href="users/user/{{ $users->id }}">{{ $user->first_name }}</a></td>
                             <td>{{ $user->last_name }}</td>
                             <td>{{ $user->username }}</td>
                         </tr>

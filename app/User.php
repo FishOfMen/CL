@@ -14,9 +14,9 @@ class User extends Authenticatable
      *
      * @var array
      */
-//    protected $fillable = [
-//        'name', 'email', 'password',
-//    ];
+   protected $fillable = [
+       'first_name', 'last_name', 'email', 'username', 'password', 'birthday', 'address', 'city', 'state', 'zip'
+   ];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -26,21 +26,25 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    
+
+    public $timestamps = true;
+
+    protected $table="users";
+
     public function teamcomposition(){
-        return $this->hasMany('teamcomposition');
+        return $this->hasMany('App\Teamcomposition', 'user_id');
     }
-       
+
     public function hockeystat(){
-        return $this->hasOne('hockeystat');
+        return $this->hasOne('App\Hockeystat', 'user_id');
     }
-        
+
     public function team(){
-        return $this->hasMany('team');
+        return $this->hasMany('App\Team', 'owner_id');
     }
-        
+
     public function league(){
-        return $this->hasMany('league');
+        return $this->hasMany('App\League', 'owner_id');
     }
-        
+
 }
