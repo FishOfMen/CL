@@ -11,18 +11,18 @@ use App\User;
 class userController extends Controller
 {
     public function index(){
-        DB::table('users')
-            where->('id', '=', 'id')
-        
-        return view('users/user/{{ id }}');
+        // DB::table('users')
+        //     where->('id', '=', 'id')
+
+        // return view('users/');
     }
-    
+
     public function createUser(){
         return view('users/create-user');
     }
-    
+
     public function store(Request $request){
-        
+
         DB::table('users')->insert([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -33,9 +33,16 @@ class userController extends Controller
             'address' => $request->address,
             'city' => $request->city,
             'state' => $request->state,
-            'zip' => $request->zip  
+            'zip' => $request->zip
         ]);
-        
+
         return \Redirect::to('/');
+    }
+
+    public function profile($id){
+
+        $user_info = User::where('id', '=', $id)->first();
+
+      return view('users/profile')->with('user_info', $user_info);
     }
 }

@@ -3,14 +3,14 @@
 @section('content')
 
 <ul class="breadcrumb">
-    <li><a href="#/">Home</a></li>
-    <li><a href="#leagues">Leagues</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/leagues">Leagues</a></li>
     <li class="active">Create Team</li>
 </ul>
-<div class="alert alert-danger" id="msgError" >
+<div class="alert alert-danger" id="msgError" hidden="true">
     <p></p>
 </div>
-<div class="alert alert-success" id="msgSuccess" >
+<div class="alert alert-success" id="msgSuccess" hidden="true">
     <p></p>
 </div>
 <div class="panel panel-primary">

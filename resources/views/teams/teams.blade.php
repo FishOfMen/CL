@@ -3,7 +3,7 @@
 @section('content')
 
 <ul class="breadcrumb">
-    <li><a href="#/">Home</a></li>
+    <li><a href="/">Home</a></li>
     <li class="active">Teams</li>
 </ul>
 <div class="panel panel-primary">

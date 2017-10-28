@@ -9,5 +9,9 @@ use DB;
 
 class gamesController extends Controller
 {
+
+    public function sports(){
+        return view('sports/sports');
+    }
     
 }

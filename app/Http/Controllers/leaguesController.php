@@ -9,5 +9,9 @@ use DB;
 
 class leaguesController extends Controller
 {
+
+    public function index(){
+        return view('leagues/leagues');
+    }
     
 }
