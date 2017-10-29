@@ -6,6 +6,18 @@
     <li><a href="/">Home</a></li>
     <li class="active">Teams</li>
 </ul>
+@if(Session::has('success'))
+    <div class="alert alert-success" id="msgSuccess">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success: </strong>{{ Session::get('success') }}
+    </div>
+@endif
+@if(Session::has('error'))
+    <div class="alert alert-danger" id="msgError">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Error: </strong>{{ Session::get('error') }}
+    </div>
+@endif
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h2>Teams</h2>
@@ -22,9 +34,9 @@
             <tbody>
                 @foreach($data as $team)
                   <tr>
-                    <td>{{ $team['team_name'] }}</td>
-                    <td>{{ $team['user']['first_name'] }} {{ $team['user']['last_name'] }}</td>
-                    <td>{{ $team['league']['name'] }}
+                    <td>{{ $team->team_name }}</td>
+                    <td>{{ $team->user->first_name }} {{ $team->user->last_name }}</td>
+                    <td>{{ $team->league->name }}
                   </tr>
                 @endforeach
             </tbody>

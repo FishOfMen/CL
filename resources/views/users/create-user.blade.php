@@ -7,12 +7,18 @@
     <li><a href="#login">Log In</a></li>
     <li class="active">Log Out</li>
 </ul>
-<div class="alert alert-success" id="msgSuccess" hidden>
-    <p></p>
-</div>
-<div class="alert alert-danger" id="msgError" hidden>
-    <p></p>
-</div>
+@if(Session::has('success'))
+    <div class="alert alert-success" id="msgSuccess">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success: </strong>{{ Session::get('success') }}
+    </div>
+@endif
+@if(Session::has('error'))
+    <div class="alert alert-danger" id="msgError">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Error: </strong>{{ Session::get('error') }}
+    </div>
+@endif
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h2>Sign Up</h2>

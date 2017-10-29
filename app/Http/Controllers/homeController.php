@@ -27,30 +27,36 @@ class homeController extends Controller
 
     public function signIn(Request $request){
 
-        $user =  User::where('username', $request->username)
-                      ->where('password', $request->password)
-                      ->select('id')->first();
-
-
-        if ($user != null){
-
-            $user_info = User::where('id', $user->id)
-                ->get()->first();
-
-            $user_name = $user_info->first_name. ' ' .$user_info->last_name;
-
-            Session::flash('success', "Welcome $user_name");
-
-            Session::put('User', $user->id);
-
-            return redirect('/');
-
+        if ($request->username == null || $request->password == null){
+            Session::flash('error', 'Please fill in all fields');
+            return redirect()->back();
         } else {
 
-            Session::flash('error', 'Could not sign in');
+            $user = User::where('username', $request->username)
+                ->where('password', $request->password)
+                ->select('id')->first();
 
-            return redirect()->back();
 
+            if ($user != null) {
+
+                $user_info = User::where('id', $user->id)
+                    ->get()->first();
+
+                $user_name = $user_info->first_name . ' ' . $user_info->last_name;
+
+                Session::flash('success', "Welcome $user_name");
+
+                Session::put('User', $user->id);
+
+                return redirect('/');
+
+            } else {
+
+                Session::flash('error', 'Username or Password incorrect');
+
+                return redirect()->back();
+
+            }
         }
     }
 

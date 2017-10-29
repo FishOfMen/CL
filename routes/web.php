@@ -31,6 +31,7 @@ Route::get('/users/profile/{id}', 'userController@profile');
 Route::get('/teams', 'teamController@index');
 
 Route::get('/teams/create-team', 'teamController@create');
+Route::post('/teams/create', 'teamController@store');
 
 // League routes
 Route::get('/leagues', 'leaguesController@index');
