@@ -7,24 +7,22 @@
     <script src="https://use.fontawesome.com/fbd586ff95.js"></script>
 </header>
 <body>
+
 <div class="row">
     <nav class="navbar navbar-default" >
 
     @include('nav')
     </nav>
 </div>
-    <div class="row">
+    <div class="content container-fluid col-md-offset-2 col-md-8 col-md-offset-2">
 
-        <div class="content col-md-6 col-md-offset-3">
+        @yield('content')
 
-            @yield('content')
+        <br />
+        <footer>
 
-            <br />
-            <footer>
-              
-               <p><i class="material-icons">copyright</i> Community Leagues</p>
-            </footer>
-        </div>
+           <p><i class="material-icons">copyright</i> Community Leagues</p>
+        </footer>
     </div>
 </body>
 </html>
